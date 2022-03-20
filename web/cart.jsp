@@ -131,6 +131,7 @@
                     </div>
                     <%
                             }
+                                session.setAttribute("totalMoney", total);
                         }
                     %>
                     <div class="totals">
@@ -143,10 +144,10 @@
                     </div>
                     <%if (cart.size() > 0) { %>
 
-                    <a class="checkout"  style="text-decoration: none;">Pay</a>
+                    <a class="checkout" href="checkout" style="text-decoration: none;">Pay</a>
                     <%} else { %>
 
-                    <a class="checkout" href="PagingServlet" style="text-decoration: none;">Pay</a>
+                    <a class="checkout" style="text-decoration: none;">Pay</a>
                     <%}%>
                 </div>
 

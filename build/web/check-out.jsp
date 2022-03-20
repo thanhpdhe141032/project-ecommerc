@@ -3,7 +3,7 @@
     Created on : Mar 16, 2022, 11:42:56 AM
     Author     : thanh.pham2_onemount
 --%>
-
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -14,6 +14,7 @@
         <title>Check out</title>
     </head>
     <body>
+        
         <div class='container'>
             <div class='window'>
                 <div class='order-info'>
@@ -41,14 +42,14 @@
                         <div class='line'></div>
                         <div class='total'>
                             <span style='float:left;'>
-                                <div class='thin dense'>VAT 19%</div>
-                                <div class='thin dense'>Delivery</div>
-                                TOTAL
+                                <div class='thin dense'>Wallet Balance</div>
+                                <div class='thin dense'>Total Fee</div>
+                                Remaining Balance
                             </span>
                             <span style='float:right; text-align:right;'>
-                                <div class='thin dense'>$68.75</div>
-                                <div class='thin dense'>$4.95</div>
-                                $435.55
+                                <div class='thin dense'><%= (String)request.getAttribute("balance") %> $</div>
+                                <div class='thin dense'> - <%= (String)request.getAttribute("totalMoney")%> $</div>
+                                <%= (String)request.getAttribute("balanceBefore") %> $
                             </span>
                         </div>
                     </div>

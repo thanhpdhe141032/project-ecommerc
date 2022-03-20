@@ -5,7 +5,7 @@
  */
 package controller;
 
-
+import dao.ProductDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -81,13 +81,13 @@ public class CartServlet extends HttpServlet {
         String command = request.getParameter("command");
         String ma_san_pham = request.getParameter("ma_san_pham");
         
-        
+
         if (command.equals("addCart")) {
             Product p = new Product(Integer.parseInt(ma_san_pham), 0, "", "", 0.0, "", "");
             addToCart(p);
             HttpSession session = request.getSession();
             session.setAttribute("cart", cart);
-           
+
 
             request.getRequestDispatcher("/cart.jsp").forward(request, response);
         } else {
@@ -100,7 +100,7 @@ public class CartServlet extends HttpServlet {
                 request.getRequestDispatcher("/cart.jsp").forward(request, response);
             } else {
                 if (command.equals("removeCart")) {
-                    Product p = new Product(Integer.parseInt(ma_san_pham), 0, "", "", 0.0, "", "");
+                    Product p = new Product(Integer.parseInt(ma_san_pham), 0, "", "img", 0.0, "", "");
                     removeFromCart(p);
                     HttpSession session = request.getSession();
 
@@ -108,7 +108,7 @@ public class CartServlet extends HttpServlet {
                     request.getRequestDispatcher("/cart.jsp").forward(request, response);
                 } else {
                     if (command.equals("setCart")) {
-                        Product p = new Product(Integer.parseInt(ma_san_pham), 0, "", "", 0.0, "", "");
+                        Product p = new Product(Integer.parseInt(ma_san_pham), 0, "", "img", 0.0, "", "");
                         setCart(p, Integer.parseInt((String) request.getParameter("soluong")));
                         HttpSession session = request.getSession();
 
@@ -133,7 +133,7 @@ public class CartServlet extends HttpServlet {
     private String setCart(Product p, int s) {
         for (Cart item : cart) {
             if (item.getP().getMa_san_pham() == p.getMa_san_pham()) {
-                item.setQuantity(item.getQuantity()+s);
+                item.setQuantity(item.getQuantity() + s);
                 return "cart";
             }
         }

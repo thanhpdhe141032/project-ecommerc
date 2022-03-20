@@ -72,6 +72,10 @@
         <servlet-name>PaySeverlet</servlet-name>
         <servlet-class>controller.PaySeverlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CheckoutSeverlet</servlet-name>
+        <servlet-class>controller.CheckoutSeverlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CartServlet</servlet-name>
         <url-pattern>/CartServlet</url-pattern>
@@ -143,6 +147,10 @@
     <servlet-mapping>
         <servlet-name>PaySeverlet</servlet-name>
         <url-pattern>/payCart</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CheckoutSeverlet</servlet-name>
+        <url-pattern>/checkout</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

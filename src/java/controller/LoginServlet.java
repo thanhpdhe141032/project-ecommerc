@@ -103,7 +103,7 @@ public class LoginServlet extends HttpServlet {
                 session.setAttribute("cart", cart);
                 userDAO.login(username, password);
                 Cookie loginCookie = new Cookie("username", username);
-
+                   
                 loginCookie.setMaxAge(30 * 60);
                 response.addCookie(loginCookie);
                 response.sendRedirect("index.jsp");

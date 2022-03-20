@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import model.Books;
 import model.Clothes;
+import model.History;
 import model.Product;
 
 /**
