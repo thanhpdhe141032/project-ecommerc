@@ -33,7 +33,16 @@
                 if (uRole == 2) {
             %>
             <li class='last'><a href="cart.jsp"><span>Cart</span></a></li>
-            <li class='last' style="float: right;"><a href="ManagerProductServlet"><span>Manage Products</span></a></li>
+            <li class='li-dropdown' style="float: right;">
+                    <div class="dropdown">
+                        <button class="dropbtn"><span>MANAGE PRODUCT</span></button>
+                        <div class="dropdown-content">
+                            <a href="#">ELECTRONIC</a>
+                            <a href="#">BOOK</a>
+                            <a href="#">CLOTHES</a>
+                        </div>
+                    </div>
+                </li>
                 <%} else if (uRole == 3) {%>
             <li class='last' style="float: right;"><a href="ManagerAccountServlet"><span>Manage Account</span></a></li>
             <li class='last' style="float: right;"><a href="ReportedManagerServlet"><span>Reported</span></a></li>

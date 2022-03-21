@@ -599,3 +599,6 @@ strong {
 		url(http://cdn.tgdd.vn/fonts/opensans/PRmiXeptR36kaC0GEAetxq6EGkuGQVtC-K3yp5dayWY.woff)
 		format('woff')
 }
+.preorder {
+    z-index: 0;
+}
