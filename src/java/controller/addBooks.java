@@ -84,6 +84,7 @@ public class addBooks extends HttpServlet {
         String img = "images/books/" + request.getParameter("img");
 
         Books books = new Books(name, author, category, description, price, img);
+        boolean status = new ProductDAO().addBooks(books);
         
         response.sendRedirect("books");
     }

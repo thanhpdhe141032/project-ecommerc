@@ -40,6 +40,7 @@
             <li class='last' style="float: right;"><a href="RequestManagerServlet"><span>Request</span></a></li>
                 <%} else if (uRole == 1) {%>
             <li class='last'><a href="cart.jsp"><span>Cart</span></a></li>
+            <li class='last' style="float: right;"><a href="ewallet"><span>EWALLET</span></a></li>
             <li class='last' style="float: right;"><a href="upToSell.jsp"><span>Up to Seller</span></a></li>
                 <%}%>
 

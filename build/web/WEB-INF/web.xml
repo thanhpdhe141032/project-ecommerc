@@ -76,6 +76,14 @@
         <servlet-name>CheckoutSeverlet</servlet-name>
         <servlet-class>controller.CheckoutSeverlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>pay</servlet-name>
+        <servlet-class>controller.pay</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ewallet</servlet-name>
+        <servlet-class>controller.ewallet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CartServlet</servlet-name>
         <url-pattern>/CartServlet</url-pattern>
@@ -151,6 +159,14 @@
     <servlet-mapping>
         <servlet-name>CheckoutSeverlet</servlet-name>
         <url-pattern>/checkout</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>pay</servlet-name>
+        <url-pattern>/pay</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ewallet</servlet-name>
+        <url-pattern>/ewallet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

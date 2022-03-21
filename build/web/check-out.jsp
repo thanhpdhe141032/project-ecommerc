@@ -14,31 +14,31 @@
         <title>Check out</title>
     </head>
     <body>
-        
         <div class='container'>
             <div class='window'>
                 <div class='order-info'>
                     <div class='order-info-content'>
                         <h2>Order Summary</h2>
                         <div class='line'></div>
-                        <table class='order-table'>
-                            <tbody>
-                                <tr>
-                                    <td><img src='https://dl.dropboxusercontent.com/s/sim84r2xfedj99n/%24_32.JPG' class='full-width'></img>
-                                    </td>
-                                    <td>
-                                        <br> <span class='thin'>Nike</span>
-                                        <br> Free Run 3.0 Women<br> <span class='thin small'> Color: Grey/Orange, Size: 10.5<br><br></span>
-                                    </td>
-
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class='price'>$99.95</div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <c:forEach items="${summary}" var="o">
+                            <table class='order-table'>
+                                <tbody>
+                                    <tr>
+                                        <td><img src=${o.img} class='full-width'></img>
+                                        </td>
+                                        <td>
+                                            <br> <span class='thin'>${o.name}</span>
+                                            <br><span class='thin small'> Quantity: ${o.total}<br><br></span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class='price'>${o.price} $</div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </c:forEach>
                         <div class='line'></div>
                         <div class='total'>
                             <span style='float:left;'>
@@ -47,9 +47,9 @@
                                 Remaining Balance
                             </span>
                             <span style='float:right; text-align:right;'>
-                                <div class='thin dense'><%= (String)request.getAttribute("balance") %> $</div>
-                                <div class='thin dense'> - <%= (String)request.getAttribute("totalMoney")%> $</div>
-                                <%= (String)request.getAttribute("balanceBefore") %> $
+                                <div class='thin dense'>${checkoutFee.balance} $</div>
+                                <div class='thin dense'> - ${checkoutFee.totalFee} $</div>
+                                ${checkoutFee.beforeBalace} $
                             </span>
                         </div>
                     </div>
@@ -67,22 +67,23 @@
                                 </td></tr>
                         </table>
                         <img src='https://dl.dropboxusercontent.com/s/ubamyu6mzov5c80/visa_logo%20%281%29.png' height='80' class='credit-card-image' id='credit-card-image'></img>
-                        Card Number
+                        Full Name
                         <input class='input-field'></input>
-                        Card Holder
+                        Address
                         <input class='input-field'></input>
                         <table class='half-input-table'>
                             <tr>
-                                <td> Expires
+                                <td> Phone number
                                     <input class='input-field'></input>
                                 </td>
-                                <td>CVC
+                                <td>Gmail
                                     <input class='input-field'></input>
                                 </td>
                             </tr>
                         </table>
-                        <button class='pay-btn'>Checkout</button>
-
+                        <form method="get" action="pay">
+                            <button type="submit" class='pay-btn'>Checkout</button>
+                        </form>
                     </div>
 
                 </div>

@@ -9,40 +9,44 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import model.History;
+import model.Wallet;
 
 /**
  *
  * @author thanh.pham2_onemount
  */
-public class CheckOutDAO extends DBContext{
-    
-    public boolean updateWallet(String username, int balance) throws SQLException {
+public class CheckOutDAO extends DBContext {
+
+    public boolean updateWallet(String username, double balance) throws SQLException {
         String sql = "update HE141449_Wallet\n"
                 + "set balance = " + balance
-                + " where username = " + username;
+                + " where username = '" + username+ "'";
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.executeUpdate();
             return true;
         } catch (SQLException e) {
             e.printStackTrace();
-           con.rollback();
+            con.rollback();
             return false;
         }
     }
 
     public double getBalance(String username) {
-        String sql = "SELECT * from HE141449_Wallet where username = '" + username+"'";
+        String sql = "SELECT * from HE141449_Wallet where username = '" + username + "'";
         System.out.println(sql);
+        double balance = 0;
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
-            double balance = rs.getFloat("balance");
-            return balance;
+            while (rs.next()) {
+                balance = rs.getFloat("balance");
+            }
         } catch (SQLException e) {
             e.printStackTrace();
             return 0;
         }
+        return balance;
     }
 
     public boolean insertHistory(int userId, String message, float balance) {
@@ -76,5 +80,9 @@ public class CheckOutDAO extends DBContext{
             return null;
         }
         return listHistory;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(new CheckOutDAO().getBalance("user"));
     }
 }

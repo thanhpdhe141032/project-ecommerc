@@ -9,27 +9,27 @@ package model;
  * @author thanh.pham2_onemount
  */
 public class Wallet {
-    private String id; 
+    private int id; 
     
     private double money; 
     
-    private String user_id;
+    private String username;
 
     public Wallet() {
     }
 
-    public Wallet(String id, double money, String user_id) {
+    public Wallet(int id, double money, String username) {
         this.id = id;
         this.money = money;
-        this.user_id = user_id;
+        this.username = username;
     }
     
     
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -41,12 +41,12 @@ public class Wallet {
         this.money = money;
     }
 
-    public String getUser_id() {
-        return user_id;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUser_id(String user_id) {
-        this.user_id = user_id;
+    public void setUsername(String username) {
+        this.username = username;
     }
     
     

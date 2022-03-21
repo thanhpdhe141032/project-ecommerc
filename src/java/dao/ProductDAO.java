@@ -445,4 +445,14 @@ public class ProductDAO extends DBContext {
             return false;
         }
     }
+
+    public static void main(String[] args) {
+        ArrayList<Product> product = new ArrayList<>();
+        product = new ProductDAO().getList();
+        
+        for (Product product1 : product) {
+            System.out.println("----------------"+product1.getHang_san_xuat());
+        }
+        
+    }
 }

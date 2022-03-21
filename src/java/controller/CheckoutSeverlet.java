@@ -17,8 +17,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import model.Cart;
+import model.CheckoutFee;
 import model.Product;
 import model.Summary;
+import model.Wallet;
 
 /**
  *
@@ -37,6 +39,7 @@ public class CheckoutSeverlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
         ArrayList<Cart> cart = new ArrayList<>();
         ArrayList<Summary> checkOut = new ArrayList<>();
         int total = 0;
@@ -51,6 +54,11 @@ public class CheckoutSeverlet extends HttpServlet {
         double totalMoney = (double) session.getAttribute("totalMoney");
         String username = (String) session.getAttribute("username");
         double balance = new CheckOutDAO().getBalance(username);
+        
+//        Wallet wallet = new Wallet();
+//        wallet.setUsername(username);
+//        wallet.setMoney(balance);
+//        session.setAttribute("ewallet", wallet);
 
         for (Cart c : cart) {
             total = c.getQuantity();
@@ -61,12 +69,12 @@ public class CheckoutSeverlet extends HttpServlet {
             price = product.getGia_ban();
             checkOut.add(new Summary(name, price, total, img));
         }
+        CheckoutFee checkoutFee = new CheckoutFee(balance, totalMoney, balance - totalMoney);
 
         request.setAttribute("summary", checkOut);
-        request.setAttribute("totalMoney", totalMoney);
-        request.setAttribute("balance", balance);
-        request.setAttribute("balanceBefore", balance - totalMoney); 
+        request.setAttribute("checkoutFee", checkoutFee);
         request.getRequestDispatcher("check-out.jsp").forward(request, response);
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -95,8 +103,9 @@ public class CheckoutSeverlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         processRequest(request, response);
+        processRequest(request, response);
     }
+
     /**
      * Returns a short description of the servlet.
      *
