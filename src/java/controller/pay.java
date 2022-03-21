@@ -70,7 +70,7 @@ public class pay extends HttpServlet {
         } catch (SQLException ex) {
             Logger.getLogger(pay.class.getName()).log(Level.SEVERE, null, ex);
         }
-        response.sendRedirect("");
+        response.sendRedirect("?invalid=true");
     }
 
     /**

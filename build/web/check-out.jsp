@@ -81,8 +81,8 @@
                                 </td>
                             </tr>
                         </table>
-                        <form method="get" action="pay">
-                            <button type="submit" class='pay-btn'>Checkout</button>
+                        <form id="checkout-form" method="get" action="pay">
+                            <button id="checkout" class='pay-btn'>Checkout</button>
                         </form>
                     </div>
 

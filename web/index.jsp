@@ -85,6 +85,16 @@
             </div>
             <div id="footer"><jsp:include page="footer.jsp"></jsp:include></div>
         </div>
-
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <script>
+            window.onload = function() {
+                let isCheckedOut = window.location.search.substr(1).split('=')[1];
+                console.log('asd', window.location.search.substr(1).split('='))
+                console.log(isCheckedOut);
+                if(isCheckedOut == 'true') {
+                    swal("Good job!", "Payment Success..!", "success");
+                }
+            }
+        </script>
     </body>
 </html>
