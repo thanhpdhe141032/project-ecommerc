@@ -138,11 +138,12 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Image</label>
-                                    <input type="file" id="img" name="img" class="form-control" accept="image/png, image/jpg" required>
+                                    <input id="imgInp" type="file" id="img" name="img" class="form-control" accept="image/png, image/jpg" required>
+                                    <img style="width: 200px; height: auto;" id="blah" src="#"/>
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+                                <input  type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
                                 <input type="submit" class="btn btn-success" value="Add">
                             </div>
                     </form>
@@ -152,6 +153,17 @@
 
 
         <script src="js/manager.js" type="text/javascript"></script>
+        <script>
+              let imgInp = document.querySelector("#imgInp");
+              let blah = document.querySelector("#blah");
+              imgInp.onchange = evt => {
+                  const [file] = imgInp.files;
+                  if(file) {
+                      blah.src = URL.createObjectURL(file);
+                  }
+              }
+            
+        </script>
         <div class="container">
             <a href="index.jsp"><button type="button" class="btn btn-primary">Back to home</button>
                 </br>
