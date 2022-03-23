@@ -330,6 +330,34 @@ public class ProductDAO extends DBContext {
         return null;
     }
 
+    public ArrayList<Clothes> getClothesByCategoryId(int id) throws Exception {
+        ArrayList<Clothes> list = new ArrayList<>();
+        String query = "SELECT * FROM HE141449_clothes WHERE category_id = " + id;
+
+        PreparedStatement ps = con.prepareStatement(query);
+        ResultSet rs = ps.executeQuery();
+
+        while (rs.next()) {
+            list.add(new Clothes(rs.getInt("id"), rs.getString("name"), rs.getString("size"), rs.getString("gender"),
+                    rs.getString("description"), rs.getString("brand"), rs.getFloat("price"), rs.getString("img")));
+        }
+        return list;
+    }
+
+    public ArrayList<Books> getBooksByCategoryId(int id) throws Exception {
+        ArrayList<Books> list = new ArrayList<>();
+        String query = "SELECT * FROM HE141449_books WHERE category_id = " + id;
+
+        PreparedStatement ps = con.prepareStatement(query);
+        ResultSet rs = ps.executeQuery();
+
+        while (rs.next()) {
+            list.add(new Books(rs.getInt("id"), rs.getString("name"), rs.getString("author"), rs.getString("category"),
+                    rs.getString("description"), rs.getFloat("price"), rs.getString("img")));
+        }
+        return list;
+    }
+
     public boolean deleteClothe(int id) {
         String sql = "delete from HE141449_clothes where id = " + id;
         try {
@@ -449,10 +477,10 @@ public class ProductDAO extends DBContext {
     public static void main(String[] args) {
         ArrayList<Product> product = new ArrayList<>();
         product = new ProductDAO().getList();
-        
+
         for (Product product1 : product) {
-            System.out.println("----------------"+product1.getHang_san_xuat());
+            System.out.println("----------------" + product1.getHang_san_xuat());
         }
-        
+
     }
 }

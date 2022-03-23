@@ -12,7 +12,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Menu dọc</title>
+        <title>Menu doc</title>
         <link rel="stylesheet" href="css/category.css" />
     </head>
     <body>
@@ -28,7 +28,7 @@
                         for (CategoryProducts c : list) {
 
                     %>
-                    <li><a href="index.jsp?ma_the_loai=<%=c.getId()%>"> <i class="fa fa-home"></i>
+                    <li><a href="ClothesByCategory.jsp?id=<%=c.getId()%>"> <i class="fa fa-home"></i>
                             <strong style="color:red"><%=c.getName()%></strong> 
                         </a></li>
                         <%
