@@ -9,21 +9,24 @@ package model;
  * @author thanh.pham2_onemount
  */
 public class Clothes {
+    
     private int id;
-    
-    private String name; 
-    
-    private String size; 
-    
+
+    private String name;
+
+    private String size;
+
     private String gender;
-    
+
     private String description;
-    
+
     private String brand;
-    
+
     private float price;
-    
+
     private String img;
+    
+    private int categoryId;
 
     public Clothes() {
     }
@@ -38,7 +41,7 @@ public class Clothes {
         this.price = price;
         this.img = img;
     }
-    
+
     public Clothes(String name, String size, String gender, String description, String brand, float price, String img ) {
         this.name = name;
         this.size = size;
@@ -49,7 +52,17 @@ public class Clothes {
         this.img = img;
     }
     
-    
+        public Clothes(int id, String name, String size, String gender, String description, String brand, float price, String img, int categoryId) {
+        this.id = id;
+        this.name = name;
+        this.size = size;
+        this.gender = gender;
+        this.description = description;
+        this.brand = brand;
+        this.price = price;
+        this.img = img;
+        this.categoryId = categoryId;
+    }
 
     public int getId() {
         return id;
@@ -114,7 +127,7 @@ public class Clothes {
     public void setPrice(float price) {
         this.price = price;
     }
-    
+
     
     
 }

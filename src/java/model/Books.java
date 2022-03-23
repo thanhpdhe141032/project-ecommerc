@@ -23,7 +23,7 @@ public class Books {
     private float price;
 
     private String img;
-
+    
     public Books() {
     }
 
@@ -45,7 +45,7 @@ public class Books {
         this.img = img;
         this.price = price;
     }
-
+        
     public int getId() {
         return id;
     }

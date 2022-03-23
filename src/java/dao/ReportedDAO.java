@@ -20,29 +20,31 @@ public class ReportedDAO extends DBContext {
             e.printStackTrace();
         }
     }
-    public ArrayList<Reported> getList(){
-        String sql="select * from HE141449_Reported";
+
+    public ArrayList<Reported> getList() {
+        String sql = "select * from HE141449_Reported";
         ArrayList<Reported> list = new ArrayList<>();
-        try{
-            PreparedStatement ps =con.prepareStatement(sql);
-            ResultSet rs= ps.executeQuery();
-            while(rs.next()){
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
                 int ma_san_pham = rs.getInt(1);
                 String li_do = rs.getString(2);
                 Reported r = new Reported(ma_san_pham, li_do);
                 list.add(r);
             }
-        }catch(SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
         return list;
     }
-    public void delete(int ma_san_pham){
-        String sql= "delete from HE141449_Reported where ma_san_pham = "+ma_san_pham;
-        try{
+
+    public void delete(int ma_san_pham) {
+        String sql = "delete from HE141449_Reported where ma_san_pham = " + ma_san_pham;
+        try {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.executeUpdate();
-        }catch(SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }

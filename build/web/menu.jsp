@@ -24,7 +24,16 @@
     <div id='menungang'>
         <ul>
             <li class='last'><a href="index.jsp"><span>Home Page</span></a></li>
-            <li class='last'><a href="PagingServlet"><span>Product</span></a></li>
+            <li class='li-dropdown'>                
+                <div class="dropdown">
+                    <button class="dropbtn"><span>PRODUCT</span></button>
+                    <div class="dropdown-content">
+                        <a href="/project">ELECTRONIC</a>
+                        <a href="books-home">BOOK</a>
+                        <a href="clothes-home">CLOTHES</a>
+                    </div>
+                </div>
+            </li>
             <li class='last'><a href="search_page.jsp"><span>Search</span></a></li>
 
 
@@ -33,8 +42,17 @@
                 if (uRole == 2) {
             %>
             <li class='last'><a href="cart.jsp"><span>Cart</span></a></li>
-            <li class='last' style="float: right;"><a href="ManagerProductServlet"><span>Manage Products</span></a></li>
-                <%} else if (uRole == 3) {%>
+            <li class='li-dropdown' style="float: right;">
+                <div class="dropdown">
+                    <button class="dropbtn"><span>MANAGE PRODUCT</span></button>
+                    <div class="dropdown-content">
+                        <a href="ManagerProductServlet">ELECTRONIC</a>
+                        <a href="books">BOOK</a>
+                        <a href="clothes">CLOTHES</a>
+                    </div>
+                </div>
+            </li>
+            <%} else if (uRole == 3) {%>
             <li class='last' style="float: right;"><a href="ManagerAccountServlet"><span>Manage Account</span></a></li>
             <li class='last' style="float: right;"><a href="ReportedManagerServlet"><span>Reported</span></a></li>
             <li class='last' style="float: right;"><a href="RequestManagerServlet"><span>Request</span></a></li>
